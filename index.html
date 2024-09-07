@@ -1,0 +1,377 @@
+<html>
+<head>
+  <title>D&D</title>
+  <link rel="icon" href="File/Icon.png" type="image/gif" sizes="16x16">
+
+  <link rel="stylesheet" href="Main.css">
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+  
+  <script type="text/javascript" src="Main.js"></script>
+</head>
+
+<body onload="onLoad()">
+
+<!-- Head -->
+
+<section class="head">
+  D&D Tools
+</section>
+<hr class="divider">
+
+<!-- Utility -->
+
+<section class="body">
+  <section class="paragraph">
+    Utilities
+  </section>
+  <table>
+    <tr>
+      <td> <!-- Boss -->
+        <div class="cellhead">Boss</div>
+
+        <form method="GET" action="boss.php" class="cellbody">
+          <label for="BossName">Boss:</label>
+          <select name="BossName" id="boss">
+            <optgroup label="Categoria1">
+              <option value="Boss1">Boss1</option>
+              <option value="Boss2">Boss2</option>
+            </optgroup>
+            <optgroup label="Categoria2">
+              <option value="Boss3">Boss3</option>
+              <option value="Boss4">Boss4</option>
+            </optgroup>
+          </select><br/>
+
+          <label for="MaxHP">HP:</label>
+          <input name="MaxHP" type="number" min="0" placeholder="169"/><br/>
+
+          <label for="ShowHP">Mostra HP:</label>
+          <input name="ShowHP" type="checkbox"/><br/>
+
+          <input type="submit" value="Invia">
+        </form>
+      </td>
+      <td> <!-- Map -->
+        <div class="cellhead">Map</div>
+        
+        <form method="GET" action="map.php" class="cellbody">
+          <label for="Mappa">Map:</label>
+          <select name="Mappa" id="boss">
+            <optgroup label="Categoria1">
+              <option value="Mappa1">Mappa1</option>
+              <option value="Mappa2">Mappa2</option>
+            </optgroup>
+            <optgroup label="Categoria2">
+              <option value="Mappa3">Mappa3</option>
+              <option value="Mappa4">Mappa4</option>
+            </optgroup>
+          </select><br/>
+
+          <input type="submit" value="Invia">
+        </form>
+      </td>
+      <td>
+        <div class="cellhead">aa</div>
+        aaa
+      </td>
+      <td>
+        <div class="cellhead">aa</div>
+        aa
+      </td>
+      <td>
+        <div class="cellhead">aa</div>
+        aa
+      </td>
+      <td>
+        <div class="cellhead">aa</div>
+        aa
+      </td>
+    </tr>
+  </table>
+  <hr class="divider">
+  <section class="paragraph">
+    Player
+  </section>
+  <table>
+    <tr>
+      <td> <!-- Generator -->
+        <div class="cellhead">Player Generator</div>
+
+        <form class="cellbody">
+
+          <label for="Name">Name:</label>
+          <input name="Name" id="PlayerName" type="text" placeholder="Megumin"><br/>
+
+          <label for="MaxHP">HP:</label>
+          <input name="MaxHP" id="PlayerHP" type="number" min="0" max="9999" placeholder="169"/><br/>
+
+          
+          <label for="Spell">Spell:</label>
+          <input name="Spell" id="PlayerSpell" type="number" min="0" max="9" placeholder="3"/><br/>
+          
+          <input type="button" value="Invia" onclick="playerGenerator()">
+        </form>
+      </td>
+      <td id="PlayerBox1">
+        <div class="cellhead"><span id="PlayerName1"></span><button onclick="playerBoxClose('PlayerBox1')">&#10006;</button></div>
+        
+        <form class="cellbody">
+          <label for="file">HP:</label>
+          <progress id="PlayerHPBar1" value="100" max="100"></progress>
+          <span id="PlayerShow1"></span>/<input type="text" id="PlayerHPSet1" style="background-color: transparent; border: 0;" class="playerHPset"><br/>
+
+          <input name="MaxHP" id="PlayerHP1" type="number" min="0" placeholder="169"/>
+          <input type="button" value="+" onclick="addHP(1)">
+          <input type="button" value="-" onclick="subtractHP(1)">
+          <input type="button" value="s" onclick="changeMaxHP(1)"><br/>
+
+          <label style="cursor: pointer;" onclick="resetSpell(1)">Spell:</label>
+          <ul class="spellcount" id="SpellCount1"></ul>
+          <input type="button" value="+" id="AddSpell1" onclick="addSpell(1)"><br/>
+
+          <input type="button" value="Riposo" onclick="riposoLungo(1)">
+        </form>
+      </td>
+      <td id="PlayerBox2">
+        <div class="cellhead"><span id="PlayerName2"></span><button onclick="playerBoxClose('PlayerBox2')">&#10006;</button></div>
+        
+        <form class="cellbody">
+          <label for="file">HP:</label>
+          <progress id="PlayerHPBar2" value="100" max="100"></progress>
+          <span id="PlayerShow2"></span>/<input type="text" id="PlayerHPSet2" style="background-color: transparent; border: 0;" class="playerHPset"><br/>
+
+          <input name="MaxHP" id="PlayerHP2" type="number" min="0" placeholder="169"/>
+          <input type="button" value="+" onclick="addHP(2)">
+          <input type="button" value="-" onclick="subtractHP(2)">
+          <input type="button" value="s" onclick="changeMaxHP(2)"><br/>
+
+          <label style="cursor: pointer;" onclick="resetSpell(2)">Spell:</label>
+          <ul class="spellcount" id="SpellCount2"></ul>
+          <input type="button" value="+" id="AddSpell2" onclick="addSpell(2)"><br/>
+
+          <input type="button" value="Riposo" onclick="riposoLungo(2)">
+        </form>
+      </td>
+      <td id="PlayerBox3">
+        <div class="cellhead"><span id="PlayerName3"></span><button onclick="playerBoxClose('PlayerBox3')">&#10006;</button></div>
+        
+        <form class="cellbody">
+          <label for="file">HP:</label>
+          <progress id="PlayerHPBar3" value="100" max="100"></progress>
+          <span id="PlayerShow3"></span>/<input type="text" id="PlayerHPSet3" style="background-color: transparent; border: 0;" class="playerHPset"><br/>
+
+          <input name="MaxHP" id="PlayerHP3" type="number" min="0" placeholder="169"/>
+          <input type="button" value="+" onclick="addHP(3)">
+          <input type="button" value="-" onclick="subtractHP(3)">
+          <input type="button" value="s" onclick="changeMaxHP(3)"><br/>
+
+          <label style="cursor: pointer;" onclick="resetSpell(3)">Spell:</label>
+          <ul class="spellcount" id="SpellCount3"></ul>
+          <input type="button" value="+" id="AddSpell3" onclick="addSpell(3)"><br/>
+
+          <input type="button" value="Riposo" onclick="riposoLungo(3)">
+        </form>
+      </td>
+      <td id="PlayerBox4">
+        <div class="cellhead"><span id="PlayerName4"></span><button onclick="playerBoxClose('PlayerBox4')">&#10006;</button></div>
+        
+        <form class="cellbody">
+          <label for="file">HP:</label>
+          <progress id="PlayerHPBar4" value="100" max="100"></progress>
+          <span id="PlayerShow4"></span>/<input type="text" id="PlayerHPSet4" style="background-color: transparent; border: 0;" class="playerHPset"><br/>
+
+          <input name="MaxHP" id="PlayerHP4" type="number" min="0" placeholder="169"/>
+          <input type="button" value="+" onclick="addHP(4)">
+          <input type="button" value="-" onclick="subtractHP(4)">
+          <input type="button" value="s" onclick="changeMaxHP(4)"><br/>
+
+          <label style="cursor: pointer;" onclick="resetSpell(4)">Spell:</label>
+          <ul class="spellcount" id="SpellCount4"></ul>
+          <input type="button" value="+" id="AddSpell4" onclick="addSpell(4)"><br/>
+
+          <input type="button" value="Riposo" onclick="riposoLungo(4)">
+        </form>
+      </td>
+      <td id="PlayerBox5">
+        <div class="cellhead"><span id="PlayerName5"></span><button onclick="playerBoxClose('PlayerBox5')">&#10006;</button></div>
+        
+        <form class="cellbody">
+          <label for="file">HP:</label>
+          <progress id="PlayerHPBar5" value="100" max="100"></progress>
+          <span id="PlayerShow5"></span>/<input type="text" id="PlayerHPSet5" style="background-color: transparent; border: 0;" class="playerHPset"><br/>
+
+          <input name="MaxHP" id="PlayerHP5" type="number" min="0" placeholder="169"/>
+          <input type="button" value="+" onclick="addHP(5)">
+          <input type="button" value="-" onclick="subtractHP(5)">
+          <input type="button" value="s" onclick="changeMaxHP(5)"><br/>
+
+          <label style="cursor: pointer;" onclick="resetSpell(5)">Spell:</label>
+          <ul class="spellcount" id="SpellCount5"></ul>
+          <input type="button" value="+" id="AddSpell5" onclick="addSpell(5)"><br/>
+
+          <input type="button" value="Riposo" onclick="riposoLungo(5)">
+        </form>
+      </td>
+      <td id="PlayerBox6">
+        <div class="cellhead"><span id="PlayerName6"></span><button onclick="playerBoxClose('PlayerBox6')">&#10006;</button></div>
+        
+        <form class="cellbody">
+          <label for="file">HP:</label>
+          <progress id="PlayerHPBar6" value="100" max="100"></progress>
+          <span id="PlayerShow6"></span>/<input type="text" id="PlayerHPSet6" style="background-color: transparent; border: 0;" class="playerHPset"><br/>
+
+          <input name="MaxHP" id="PlayerHP6" type="number" min="0" placeholder="169"/>
+          <input type="button" value="+" onclick="addHP(6)">
+          <input type="button" value="-" onclick="subtractHP(6)">
+          <input type="button" value="s" onclick="changeMaxHP(6)"><br/>
+
+          <label style="cursor: pointer;" onclick="resetSpell(6)">Spell:</label>
+          <ul class="spellcount" id="SpellCount6"></ul>
+          <input type="button" value="+" id="AddSpell6" onclick="addSpell(6)"><br/>
+
+          <input type="button" value="Riposo" onclick="riposoLungo(6)">
+        </form>
+      </td>
+      <td id="PlayerBox7">
+        <div class="cellhead"><span id="PlayerName7"></span><button onclick="playerBoxClose('PlayerBox7')">&#10006;</button></div>
+        
+        <form class="cellbody">
+          <label for="file">HP:</label>
+          <progress id="PlayerHPBar7" value="100" max="100"></progress>
+          <span id="PlayerShow7"></span>/<input type="text" id="PlayerHPSet7" style="background-color: transparent; border: 0;" class="playerHPset"><br/>
+
+          <input name="MaxHP" id="PlayerHP7" type="number" min="0" placeholder="169"/>
+          <input type="button" value="+" onclick="addHP(7)">
+          <input type="button" value="-" onclick="subtractHP(7)">
+          <input type="button" value="s" onclick="changeMaxHP(7)"><br/>
+
+          <label style="cursor: pointer;" onclick="resetSpell(7)">Spell:</label>
+          <ul class="spellcount" id="SpellCount7"></ul>
+          <input type="button" value="+" id="AddSpell7" onclick="addSpell(7)"><br/>
+
+          <input type="button" value="Riposo" onclick="riposoLungo(7)">
+        </form>
+      </td>
+    </tr>
+  </table>
+  <hr class="divider">
+  <section class="paragraph">
+    Combact List
+  </section>
+  <table>
+    <tr>
+      <td style="height: 190px;"> <!-- Selector -->
+        <div class="cellhead">Player Selector</div>
+
+        <form class="cellbody">
+          <div class="selectleft">
+            <input id="Player1" type="checkbox"/>
+            <label for="Player1" id="PlayerSelect1">Player 1</label><br/>
+
+            <input id="Player2" type="checkbox"/>
+            <label for="Player2" id="PlayerSelect2">Player 2</label><br/>
+            
+            <input id="Player3" type="checkbox"/>
+            <label for="Player3" id="PlayerSelect3">Player 3</label><br/>
+
+            <input id="Player4" type="checkbox"/>
+            <label for="Player4" id="PlayerSelect4">Player 4</label><br/>
+          </div>
+          
+          <div class="selectright">
+            <input id="Player5" type="checkbox"/>
+            <label for="Player5" id="PlayerSelect5">Player 5</label><br/>
+            
+            <input id="Player6" type="checkbox"/>
+            <label for="Player6" id="PlayerSelect6">Player 6</label><br/>
+
+            <input id="Player7" type="checkbox"/>
+            <label for="Player7" id="PlayerSelect7">Player 7</label><br/>
+            
+            <input id="Player8" type="checkbox"/>
+            <label for="Player8">Extra Boss</label><br/>
+          </div>
+
+          <div class="selectmiddle">
+            <input type="button" value="Invia" onclick="combactList()">&nbsp;&nbsp;&nbsp;<input type="reset" value="Reset">
+          </div>
+        </form>
+      </td>
+      <td id="CombactList1">
+        <div class="cellhead">Combact List 1<button onclick="combactListClose('CombactList1')">&#10006;</button></div>
+        <ul id="sortable1" class="connectedSortable">
+          <li id="selector11"><div>&equiv;</div>Player 1</li>
+          <li id="selector12"><div>&equiv;</div>Player 2</li>
+          <li id="selector13"><div>&equiv;</div>Player 3</li>
+          <li id="selector14"><div>&equiv;</div>Player 4</li>
+          <li id="selector15"><div>&equiv;</div>Player 5</li>
+          <li id="selector16"><div>&equiv;</div>Player 6</li>
+          <li id="selector17"><div>&equiv;</div>Player 7</li>
+          <li><div>&equiv;</div><input type="text" placeholder="Boss" id="bossselector1" onkeyup="saveBossName(this, 1, 1)"></li>
+          <li id="selector18"><div>&equiv;</div><input type="text" placeholder="Extra Boss" onkeyup="saveBossName(this, 2, 1)"></li>
+        </ul>
+      </td>
+      <td id="CombactList2">
+        <div class="cellhead">Combact List 2<button onclick="combactListClose('CombactList2')">&#10006;</button></div>
+        <ul id="sortable2" class="connectedSortable">
+          <li id="selector21"><div>&equiv;</div>Player 1</li>
+          <li id="selector22"><div>&equiv;</div>Player 2</li>
+          <li id="selector23"><div>&equiv;</div>Player 3</li>
+          <li id="selector24"><div>&equiv;</div>Player 4</li>
+          <li id="selector25"><div>&equiv;</div>Player 5</li>
+          <li id="selector26"><div>&equiv;</div>Player 6</li>
+          <li id="selector27"><div>&equiv;</div>Player 7</li>
+          <li><div>&equiv;</div><input type="text" placeholder="Boss" id="bossselector2" onkeyup="saveBossName(this, 1, 2)"></li>
+          <li id="selector28"><div>&equiv;</div><input type="text" placeholder="Extra Boss" onkeyup="saveBossName(this, 2, 2)"></li>
+        </ul>
+      </td>
+      <td id="CombactList3">
+        <div class="cellhead">Combact List 3<button onclick="combactListClose('CombactList3')">&#10006;</button></div>
+        <ul id="sortable3" class="connectedSortable">
+          <li id="selector31"><div>&equiv;</div>Player 1</li>
+          <li id="selector32"><div>&equiv;</div>Player 2</li>
+          <li id="selector33"><div>&equiv;</div>Player 3</li>
+          <li id="selector34"><div>&equiv;</div>Player 4</li>
+          <li id="selector35"><div>&equiv;</div>Player 5</li>
+          <li id="selector36"><div>&equiv;</div>Player 6</li>
+          <li id="selector37"><div>&equiv;</div>Player 7</li>
+          <li><div>&equiv;</div><input type="text" placeholder="Boss" id="bossselector3" onkeyup="saveBossName(this, 1, 3)"></li>
+          <li id="selector38"><div>&equiv;</div><input type="text" placeholder="Extra Boss" onkeyup="saveBossName(this, 2, 3)"></li>
+        </ul>
+      </td>
+      <td id="CombactList4">
+        <div class="cellhead">Combact List 4<button onclick="combactListClose('CombactList4')">&#10006;</button></div>
+        <ul id="sortable4" class="connectedSortable">
+          <li id="selector41"><div>&equiv;</div>Player 1</li>
+          <li id="selector42"><div>&equiv;</div>Player 2</li>
+          <li id="selector43"><div>&equiv;</div>Player 3</li>
+          <li id="selector44"><div>&equiv;</div>Player 4</li>
+          <li id="selector45"><div>&equiv;</div>Player 5</li>
+          <li id="selector46"><div>&equiv;</div>Player 6</li>
+          <li id="selector47"><div>&equiv;</div>Player 7</li>
+          <li><div>&equiv;</div><input type="text" placeholder="Boss" id="bossselector4" onkeyup="saveBossName(this, 1, 4)"></li>
+          <li id="selector48"><div>&equiv;</div><input type="text" placeholder="Extra Boss" onkeyup="saveBossName(this, 2, 4)"></li>
+        </ul>
+      </td>
+      <td id="CombactList5">
+        <div class="cellhead">Combact List 5<button onclick="combactListClose('CombactList5')">&#10006;</button></div>
+        <ul id="sortable5" class="connectedSortable">
+          <li id="selector51"><div>&equiv;</div>Player 1</li>
+          <li id="selector52"><div>&equiv;</div>Player 2</li>
+          <li id="selector53"><div>&equiv;</div>Player 3</li>
+          <li id="selector54"><div>&equiv;</div>Player 4</li>
+          <li id="selector55"><div>&equiv;</div>Player 5</li>
+          <li id="selector56"><div>&equiv;</div>Player 6</li>
+          <li id="selector57"><div>&equiv;</div>Player 7</li>
+          <li><div>&equiv;</div><input type="text" placeholder="Boss" id="bossselector5" onkeyup="saveBossName(this, 1, 5)"></li>
+          <li id="selector58"><div>&equiv;</div><input type="text" placeholder="Extra Boss" onkeyup="saveBossName(this, 2, 5)"></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+</section>
+
+</body>
+</html>
