@@ -1,0 +1,274 @@
+/* Page */
+
+:root {
+    --color1: #FF7514;
+    --color2: #c9641c;
+    --color3: #fff0e5;
+    --color4: #612800;
+    --color5: #ffe0ca; /* Hover */
+    --color6: #ffceac; /* Focus */
+    --color7: #111;
+}
+
+html {
+	overflow-x: hidden;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+    background-color:var(--color3);
+    color: var(--color3);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+}
+
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 0px var(--color2); 
+	border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--color1);
+	border: 1px solid var(--color2);
+	border-radius: 5px;
+}
+
+::selection {
+	background: var(--color4);
+	color: var(--color3);
+}
+
+/* Head */
+
+.head {
+    height: 75px;
+    padding-top: 15px;
+    font-size: 40px;
+    text-align: center;
+    color: var(--color1);
+    font-weight: bold;
+}
+
+.divider {
+    width: 90%;
+    height: 2px;
+    border: 0;
+    border-radius: 5px;
+    background-color: var(--color2);
+    
+}
+
+/* Body */
+
+.paragraph {
+    height: 45px;
+    padding-top: 20px;
+    font-size: 30px;
+    text-align: center;
+    color: var(--color1);
+    font-weight: bold;
+}
+
+.body table{
+    width: 100%;
+    text-align: center;
+}
+
+.body table tr td {
+	display: inline-block;
+	word-break: break-all;
+	width: 265px;
+    height: 165px;
+    margin: 25px;
+    padding: 15px;
+	border: 2px solid var(--color2);
+    background-color: var(--color1);
+    border-radius: 3px;
+}
+
+.cellhead {
+    position: relative;
+    width: 100%;
+	height: 10%;
+    padding-bottom: 25px;
+    color: var(--color3);
+    font-size: 20px;
+}
+
+/* Form */
+
+.cellbody {
+    position: relative;
+    width: 100%;
+	height: 80%;
+    line-height: 30px;
+}
+
+.cellbody label {
+    position: relative;
+    padding-right: 2.5px;
+}
+
+.cellbody input, .cellbody select {
+    position: relative;
+    max-width: 75px;
+    background-color: var(--color3);
+    border: 1.5px solid var(--color2);
+    border-radius: 3px;
+    accent-color: var(--color2);
+    color: var(--color7);
+    cursor: pointer;
+}
+
+.cellbody input:hover {
+    background-color: var(--color5);
+}
+
+.cellbody input[type="submit"]:focus {
+    background-color: var(--color6);
+}
+
+.cellbody input[type="submit"], .cellbody input[type="button"] {
+    margin-top: 5px;
+}
+
+/* Combact List */
+
+#CombactList1, #CombactList2, #CombactList3, #CombactList4, #CombactList5 {
+    display: none;
+    height: inherit;
+}
+
+#sortable1, #sortable2, #sortable3, #sortable4, #sortable5 {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 60%;
+    color: var(--color7);
+    border-radius: 3px;
+    user-select: none;
+}
+
+#sortable1 li, #sortable2 li, #sortable3 li, #sortable4 li, #sortable5 li {
+    background-color: var(--color3);
+    border: 1.5px solid var(--color2);
+    cursor: all-scroll;
+}
+
+#sortable1 li div, #sortable2 li div, #sortable3 li div, #sortable4 li div, #sortable5  li div{
+    position: absolute;
+    width: 20%;
+    left: 0%;
+}
+
+.connectedSortable input[type="text"] {
+    width: 60%;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: var(--color2);
+    font-size: 100%;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    outline: none;
+}
+
+.selectleft {
+    position: absolute;
+    width: 50%;
+    left: 4%;
+}
+
+.selectright {
+    position: absolute;
+    width: 50%;
+    right: 4%;
+}
+
+.selectmiddle {
+    position: absolute;
+    width: 100%;
+    top: 122.5px;
+}
+
+.cellhead button {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: transparent;
+    color: var(--color2);
+    text-shadow: 2px 0 var(--color3), -2px 0 var(--color3), 0 2px var(--color3), 0 -2px var(--color3), 1px 1px var(--color3), -1px -1px var(--color3), 1px -1px var(--color3), -1px 1px var(--color3);
+    border: 0;
+    cursor: pointer;
+}
+
+/* Player */
+
+#PlayerBox1, #PlayerBox2, #PlayerBox3, #PlayerBox4, #PlayerBox5, #PlayerBox6, #PlayerBox7 {
+    display: none;
+}
+
+.cellbody progress {
+    border-radius: 3px;
+    width: 60%;
+}
+
+.cellbody progress::-webkit-progress-bar {
+    background-color: var(--color6);
+    border: 1.5px solid var(--color2);
+    border-radius: 3px;
+}
+ 
+.cellbody  progress::-webkit-progress-value {
+    background-color: #00FF00;
+    background-color: var(--td-background-color);
+    border-radius: 2px;
+}
+
+.playerHPset {
+    width: 32.5px;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: var(--color3);
+    font-size: 100%;
+    text-align: left;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    outline: none;
+    cursor: text;
+}
+
+.spellcount {
+    list-style-type: none;
+    display: inline;
+    padding: 0;
+    margin: 0; 
+
+}
+
+.cellbody input[type="button"] {
+    min-width: 20px;
+}
+
+/* Table */
+
+.main {
+    width: 100%;
+    height: 100%;
+}
+
+.main tr td {
+    width: 33.33%;
+    height: 33.33%;
+}
